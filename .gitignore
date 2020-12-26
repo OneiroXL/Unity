@@ -1,0 +1,5 @@
+*.log
+/JumpJump/Temp
+/JumpJump/obj
+/JumpJump/[Ll]ibrary/
+/JumpJump.vs/*
