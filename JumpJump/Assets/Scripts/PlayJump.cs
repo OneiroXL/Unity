@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayJump : MonoBehaviour
 {
+    public Camera myCamera;
+
     //起始点
     public Transform oriPos;
 
@@ -21,7 +23,12 @@ public class PlayJump : MonoBehaviour
     private float pressTime = 0;
     private float up = 0;
     private bool isFly = false;
+    private bool isSuccess = false;
     private Vector3 direction;
+    private Vector3 preMid;
+    private Vector3 curMid;
+    private Vector3 cameraTargetPos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +37,10 @@ public class PlayJump : MonoBehaviour
         vx = distance / 1.0f;
         direction = (desPos.position - oriPos.position).normalized;
         desPos.tag = "target";
+
+        preMid = (oriPos.position + desPos.position) / 2.0f;
+        curMid = preMid;
+        cameraTargetPos = myCamera.transform.position;
     }
 
     // Update is called once per frame
@@ -37,6 +48,7 @@ public class PlayJump : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            isSuccess = false;
             press = true;
         }
 
@@ -84,7 +96,9 @@ public class PlayJump : MonoBehaviour
 
             //旋转
             //transform.GetChild(0).Rotate(0, 0, 360 * Time.deltaTime);
+
         }
+        myCamera.transform.position = Vector3.MoveTowards(myCamera.transform.position, cameraTargetPos, Time.deltaTime);
     }
 
     void FixedUpdate()
@@ -128,6 +142,12 @@ public class PlayJump : MonoBehaviour
             desPos.tag = "target";
 
             direction = (desPos.position - oriPos.position).normalized;
+
+            preMid = curMid;
+            curMid = desPos.position + oriPos.position / 2.0f;
+            Vector3 temDir = curMid - preMid;
+            cameraTargetPos = myCamera.transform.position + temDir;
+
         }
     }
 }

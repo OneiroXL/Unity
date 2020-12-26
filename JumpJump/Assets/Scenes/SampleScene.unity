@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442815049317919516, guid: 917838807b733d64da86e77210214b49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.37
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 442815049317919516, guid: 917838807b733d64da86e77210214b49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -510,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636446484a968b84a9300584c56299ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 963194227}
   oriPos: {fileID: 2024073378}
   desPos: {fileID: 368881731}
   box: {fileID: 442815049317919520, guid: 917838807b733d64da86e77210214b49, type: 3}
