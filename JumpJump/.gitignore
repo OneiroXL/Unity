@@ -1,0 +1,5 @@
+*.log
+Temp
+obj
+/[Ll]ibrary/
+.vs/*
