@@ -124,7 +124,7 @@ public class PlayJump : MonoBehaviour
             GameObject nextCube = GameObject.Instantiate(box, tarPos, Quaternion.identity);
             oriPos = desPos;
             desPos = nextCube.transform;
-            oriPos.tag = string.Empty;
+            oriPos.tag = "empty";
             desPos.tag = "target";
 
             direction = (desPos.position - oriPos.position).normalized;
